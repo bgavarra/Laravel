@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Usuario;
 
 class UsuarioController extends Controller
 {
@@ -36,6 +37,12 @@ class UsuarioController extends Controller
     {
       $nome = $request->input('primeiroNome');
       $sobreNome = $request->input('sobreNome');
+
+      /*$usuario=new Usuario;
+      $usuario->nome=$nome;
+      $usuario->sobrenome=$sobreNome;
+      $usuario->save();*/
+      Usuario::create(['nome' => $nome, 'Sobrenome' =>$sobreNome,]);
     }
 
     /**
@@ -80,6 +87,16 @@ class UsuarioController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cara=Usuario::find($id);
+
+        return view('welcome')->with('cara',$cara);
+
+    }
+    public function mostrar()
+    {
+        $cara=Usuario::all();
+
+        return view('welcome')->with('caras',$cara);
+
     }
 }

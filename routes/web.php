@@ -13,6 +13,10 @@
 
 Route::get('/', 'ControladorController@showMain')->name('Rota1');
 
+Route::get('/apagar/{id}', 'UsuarioController@destroy')->name('Rota1');
+
+Route::get('/mostrar', 'UsuarioController@mostrar')->name('Rota1');
+
 Route::post('/', 'UsuarioController@store')->name('Rota2');
 
 Route::get('/page1', function () {

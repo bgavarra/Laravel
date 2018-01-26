@@ -13,7 +13,7 @@
 
 Route::get('/', 'ControladorController@showMain')->name('Rota1');
 
-Route::post('/', 'ControladorController@add')->name('Rota2');
+Route::post('/', 'UsuarioController@store')->name('Rota2');
 
 Route::get('/page1', function () {
     return view('pages/page1');
@@ -40,3 +40,7 @@ Não gostou?<a href='".url('contato')."'> Google ta aí, se vira pra achar ele.<
 Route::get('/page2/{name}/{idade}/{carro}', function ($name,$idade,$carro) {
   return view('page2',['name'=>$name,'idade'=>$idade,'carro'=>$carro]);
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -89,7 +89,7 @@ class UsuarioController extends Controller
     {
         $cara=Usuario::find($id);
 
-        return view('welcome')->with('cara',$cara);
+        return view('deletar')->with('cara',$cara);
 
     }
     public function mostrar()
